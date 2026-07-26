@@ -19,7 +19,7 @@ Crear un **punto de restauración en Windows** antes de iniciar el laboratorio, 
 
 - ISO Ubuntu Server 24.04  
   https://releases.ubuntu.com/24.04/  
-  https://releases.ubuntu.com/24.04/ubuntu-24.04.2-live-server-amd64.iso  
+https://releases.ubuntu.com/24.04/ubuntu-24.04.4-live-server-amd64.iso 
 
 - PgAdmin 4  
   https://www.pgadmin.org/download/pgadmin-4-windows/  
