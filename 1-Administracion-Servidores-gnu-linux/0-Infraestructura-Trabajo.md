@@ -123,7 +123,7 @@ init 6
 
 # PARTE IV
 
-## 1. Copiar archivos desde Windows mediante SCP
+## 1. Copiar archivos desde Windows mediante CMD
 
 Desde el CMD de Windows:
 
