@@ -13,7 +13,7 @@
     Google).
 -   Ubuntu Server:
     -   https://releases.ubuntu.com/24.04/
-    -   https://releases.ubuntu.com/24.04/ubuntu-24.04.2-live-server-amd64.iso
+    -   https://releases.ubuntu.com/24.04/ubuntu-24.04.4-live-server-amd64.iso 
 -   Putty: https://www.putty.org/
 -   MobaXterm: https://mobaxterm.mobatek.net/download-home-edition.html
 -   WinSCP: https://winscp.net/eng/downloads.php
