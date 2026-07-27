@@ -34,7 +34,7 @@ mv /etc/resolv.conf /etc/resolv.conf_ORI
 cp /etc/resolv.conf_ORI /etc/resolv.conf
 vim /etc/resolv.conf
 ```
-Modificamos la primer línea para establecerla de la siguiente manera:
+Modificamos la primer línea para que el archivo quede de la siguiente manera:
 ```text
 nameserver 8.8.8.8
 options edns0 trust-ad
