@@ -117,6 +117,11 @@ O bien deteniéndolo e iniciándolo nuevamente:
 ```
 *(También se puede usar `service isc-dhcp-server stop` y `start`).*
 
+Para poder ver el estado del servicio DHCP. utilizamos el siguiente comando:
+```bash
+/etc/init.d/isc-dhcp-server status
+```
+
 Para monitorear el servicio, es recomendable tener abierta otra terminal ejecutando el comando:
 ```bash
 tail -f /var/log/syslog
