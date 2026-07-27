@@ -22,6 +22,25 @@ INTERFACESv4="enp0s8"
 ```
 *(Nota: Las líneas que inician con el símbolo `#` son comentarios).*
 
+## TRUCO - Configuración de Resolución DNS para no perder conexión a internet por medio de interface NAT
+
+Verificamos los servicios de resolución de nombres con:
+```bash
+resolvectl
+```
+En versiones recientes, `/etc/resolv.conf` es un enlace simbólico. Para configurar un DNS estático debemos:
+```bash
+mv /etc/resolv.conf /etc/resolv.conf_ORI
+cp /etc/resolv.conf_ORI /etc/resolv.conf
+vim /etc/resolv.conf
+```
+Modificamos la primer línea para establecerla de la siguiente manera:
+```text
+nameserver 8.8.8.8
+options edns0 trust-ad
+search .
+```
+
 ## 3. Configuración Principal del DHCP
 Nos movemos al directorio de configuración del DHCP con la instrucción:
 ```bash
