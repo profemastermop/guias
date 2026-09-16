@@ -86,9 +86,26 @@ network:
     enp0s9:
       dhcp4: false
       addresses: [192.168.56.190/24]
+    enp0s10:
+      dhcp4: true
+      optional: true
+      dhcp4-overrides:
+        use-routes: false
+        use-dns: false
+
 ```
 
-Apagar la Máquina Virtual.
+Qué hace cada línea del bloque de la interfaz **enp0s10**
+
+***dhcp4: true*** - define que el direccionamiento se va recibir de manera dinámica
+
+***optional: true*** - el arranque no espera a que esa interfaz reciba IP; sin esto tarda dos minutos 
+
+***use-routes: false*** - acepta la dirección pero ignora la ruta por defecto que anuncia el DHCP 
+
+***use-dns: false*** - ignora el DNS que anuncia el DHCP, para no pisar el resolv.conf
+
+## Ahora Proceder a Apagar la Máquina Virtual.
 
 ## Configuración de VirtualBox
 
