@@ -111,11 +111,11 @@ mkdir /datos
 
 cd /datos
 
-mkdir /sitios
+mkdir sitios
 
-cd /sitios
+cd sitios
 
-mkdir /joomla
+mkdir joomla
 
 cd /datos
 
