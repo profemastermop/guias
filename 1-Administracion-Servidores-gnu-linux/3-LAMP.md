@@ -117,7 +117,6 @@ cd sitios
 
 mkdir joomla
 
-
 cd /datos
 
 wget https://github.com/joomla/joomla-cms/releases/download/5.2.0/Joomla_5.2.0-Stable-Full_Package.zip
@@ -317,7 +316,6 @@ rm -rf installation
 mysql -u root -p
 SELECT user, host, plugin from mysql.user;
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Mt9*Nr%3$hv!';
-mysql_secure_installation
 ALTER USER 'root'@'localhost' IDENTIFIED WITH auth_socket;
 ```
 
