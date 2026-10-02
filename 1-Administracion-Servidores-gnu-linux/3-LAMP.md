@@ -117,6 +117,7 @@ cd sitios
 
 mkdir joomla
 
+
 cd /datos
 
 wget https://github.com/joomla/joomla-cms/releases/download/5.2.0/Joomla_5.2.0-Stable-Full_Package.zip
