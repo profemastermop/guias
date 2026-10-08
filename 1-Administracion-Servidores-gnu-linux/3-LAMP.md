@@ -146,9 +146,14 @@ chown www-data:www-data sitios/ -R
 ls -lt
 
 chmod 755 sitios/ -R
+```
 
+La siguiente instrucción se denomina enlace simbólico. Un enlace simbólico (soft link o symlink) en GNU/Linux es un archivo especial que funciona como un acceso directo, haciendo referencia a la ruta de otro archivo o directorio en el sistema de archivos. No almacena los datos reales del elemento de origen, sino únicamente la dirección de memoria/ruta hacia él.
+
+```bash
 ln -s /datos/sitios/joomla/ /var/www/html/labweb
-
+```
+```bash
 cd /var/www/html
 
 ls -lt
