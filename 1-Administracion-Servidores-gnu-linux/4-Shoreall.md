@@ -17,6 +17,8 @@ https://youtu.be/dqlzQXo1wqo
 
 ## 1. Instalación del Servicio
 
+Shorewall es una herramienta de seguridad informática para Linux que permite configurar y administrar un firewall (cortafuegos). Utiliza el sistema de filtrado de paquetes del kernel de Linux para controlar qué conexiones de red se permiten y cuáles se bloquean.
+
 ```bash
 apt install shorewall
 cd /etc/shorewall
@@ -32,6 +34,8 @@ ls -lt
 ## 2. Copiar y Modificar Archivos de Configuración
 
 ### Archivo `interfaces`
+
+En Shorewall, el archivo interfaces sirve para indicarle al firewall qué interfaces de red tiene el equipo y a qué zona de seguridad pertenece cada una.
 
 ```bash
 cp interfaces /etc/shorewall/
@@ -57,6 +61,8 @@ dmz     enp0s9          tcpflags,nosmurfs,routefilter
 
 ### Archivo `snat`
 
+En Shorewall, el archivo snat sirve para configurar el NAT de origen (Source Network Address Translation). Permite cambiar la dirección IP de origen de los paquetes que salen de una red hacia otra.
+
 ```bash
 cp snat /etc/shorewall/
 vim /etc/shorewall/snat
@@ -74,6 +80,8 @@ MASQUERADE              10.0.0.0/8,\
 ---
 
 ### Archivo `policy`
+
+En Shorewall, el archivo policy sirve para definir las políticas predeterminadas de tráfico entre las zonas de red. Es decir, establece qué debe hacer el firewall cuando una conexión no coincide con ninguna regla específica del archivo rules.
 
 ```bash
 cp policy /etc/shorewall/
@@ -116,6 +124,8 @@ all             all             REJECT          $LOG_LEVEL
 
 ### Archivo `rules`
 
+En Shorewall, el archivo rules sirve para definir las reglas específicas que permiten, rechazan o bloquean determinados tipos de tráfico de red. Por ejemplo, permitir el acceso a una página web, habilitar SSH para administrar un servidor o bloquear conexiones a determinados puertos.
+
 ```bash
 cp rules /etc/shorewall/
 vim /etc/shorewall/rules
@@ -125,6 +135,8 @@ vim /etc/shorewall/rules
 ---
 
 ### Archivo `stoppedrules`
+
+En Shorewall, el archivo stoppedrules sirve para definir reglas de firewall que se aplican cuando Shorewall está detenido (stopped), según la versión y la configuración utilizada.
 
 ```bash
 cp stoppedrules /etc/shorewall/
@@ -146,6 +158,8 @@ ACCEPT          -               enp0s9
 
 ### Archivo `zones`
 
+En Shorewall, el archivo zones sirve para definir las zonas de seguridad de la red. Estas zonas permiten agrupar equipos o interfaces según el nivel de confianza o la función que cumplen, para que el firewall pueda controlar el tráfico entre ellas.
+
 ```bash
 cp zones /etc/shorewall/
 vim /etc/shorewall/zones
@@ -155,6 +169,8 @@ vim /etc/shorewall/zones
 ---
 
 ### Archivo `shorewall.conf`
+
+El archivo shorewall.conf sirve para configurar los parámetros generales de Shorewall, el firewall de Linux. Es decir, controla cómo funciona Shorewall y qué características utiliza para proteger la red.
 
 ```bash
 vim /etc/shorewall/shorewall.conf
@@ -166,6 +182,18 @@ Modificar las siguientes líneas:
 LOG_MARTIANS=NO
 IP_FORWARDING=Yes
 ```
+
+En Shorewall, estos dos parámetros controlan aspectos clave sobre cómo el sistema maneja el tráfico de red y los registros de seguridad:
+
+LOG_MARTIANS=NO
+Los "martians" (marcianos) son paquetes de red que provienen de direcciones IP que técnicamente no deberían existir o no deberían verse en esa interfaz (por ejemplo, paquetes con direcciones IP de origen privadas o imposibles según la tabla de enrutamiento, como tráfico de internet que llega con una IP local). 
+
+El valor NO: Indica que Shorewall no registrará (no guardará en los logs del sistema) estos paquetes extraños o inválidos cuando el núcleo de Linux los descarte automáticamente.
+
+IP_FORWARDING=Yes
+Controla si el sistema Linux tiene permitido reenviar tráfico (actuar como un router o pasarela) entre diferentes interfaces de red.
+
+El valor Yes: Le indica a Shorewall que debe activar el reenvío de paquetes a nivel del núcleo (net.ipv4.ip_forward = 1). Esto es indispensable si el equipo con Shorewall funciona como un enrutador, pasarela (gateway) o comparte internet con otras subredes o contenedores (por ejemplo, si conecta tu red local LAN hacia la WAN/Internet). Si estuviera en No, el servidor bloquearía cualquier intento de pasar tráfico de una red a otra.
 
 ---
 
