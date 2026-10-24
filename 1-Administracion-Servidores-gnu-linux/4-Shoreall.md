@@ -223,10 +223,12 @@ tail -f /var/log/syslog
 
 ## 4. Configuración del Cliente
 
-- **IP:** 192.168.100.10  
+- **IP:** Varlor entre 1 y 254 del segmento de red utilizado
 - **Máscara:** 255.255.255.0  
-- **Gateway:** 192.168.100.3  
-- **DNS:** 192.168.100.1, 8.8.8.8, 8.8.4.4
+- **Gateway:** Ip Interface Red Interna del Servidor  
+- **DNS:** Ip Interface Red Interna del Servidor, 8.8.8.8, 8.8.4.4
+
+**NOTA:** El valor del parámetro option routers del archivo de configuración de DHCP debe ser la Ip de la Interface Red Interna del Servidor
 
 ---
 
@@ -234,24 +236,29 @@ tail -f /var/log/syslog
 
 Editar el archivo `/etc/shorewall/rules`.
 
-### a. SSH desde máquina física
+### a. SSH desde máquina física (Puerto 22)
 ```bash
 SSH(ACCEPT)     dmz             $FW
 ```
 
-### b. DNS para Red Interna
+### b. DNS para Red Interna (Puerto 53)
 ```bash
 DNS(ACCEPT)     loc             $FW
 ```
 
-### c. HTTP (Web) para Red Interna
+### c. HTTP (Web) para Red Interna (Puerto 80)
 ```bash
 #
 #       Accept HTTP connections
 #
 HTTP(ACCEPT)     loc             $FW
 ```
+### d. DHCP para Red Interna (Puertos 67 y 68)
+```bash
+DHCPfwd(ACCEPT)     loc             $FW
+DHCPfwd(ACCEPT)     $FW             loc
+```
 
 ---
 
-Con esto se permite acceso a **Apache2** y salida a Internet desde la zona **loc**.
+Con esto se permite acceso a **Apache2**, entrega de direccionamiento dinámico y salida a Internet desde la zona **loc**.
