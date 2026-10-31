@@ -19,9 +19,11 @@ Este instructivo describe el proceso de instalación y configuración del servic
 apt install nfs-kernel-server
 ```
 
-### Asignación de Permisos
+### Validar que el directorio exista y Asignación de Permisos
 
 ```bash
+ls -lt /
+
 chmod 777 /datos -R
 ```
 
