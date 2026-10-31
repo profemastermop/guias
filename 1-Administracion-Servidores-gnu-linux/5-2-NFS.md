@@ -41,7 +41,7 @@ Editar el archivo `vim /etc/exports` y agregar la siguiente línea:
 
 Instalar los siguientes paquetes: vim es el editor que hemos utilizado a lo largo del curso, openssh-server para poder establecer conexiones remotas al cliente y realizar tareas de configuración desde el MobaXterm.
 
-Que el equipo cliente cuente con una interfaz en modo Red Interna y otra en modo Solo Anfitrión (esta última para conectarse desde el MobaXterm)
+Que el equipo cliente cuente con una interfaz en modo Red Interna (para establecer la comunicación con el servidor), otra en modo Solo Anfitrión (esta última para conectarse desde el MobaXterm) y una temporal en modo NAT (para tener salida a internet e instalar los paquetes necesarios)
 
 
 ```bash

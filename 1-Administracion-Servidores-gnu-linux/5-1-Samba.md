@@ -16,17 +16,16 @@ apt-get install samba
 
 ---
 
-## Creación de Directorios y Usuarios
+## Creación de Directorios
 
 En la partición `/datos` vamos a crear una carpeta llamada `alumnos` y dentro de esta crearemos las siguientes carpetas:  
 `andres`, `juan` y `pedro`.
 
-Antes de ello, debemos crear los usuarios correspondientes definiendo la ruta del directorio home de la siguiente manera:  
-`/datos/alumnos/nombre`
+## Creación de Grupo
 
-Pero antes creamos el grupo **curso_linux** con el GUID = `9000`.
+Ahora creamos el grupo **curso_linux** con el GUID = `9000`.
 
-Vemos el archivo donde se almacenan los grupos antes de la creación
+Antes de ello, vamos a ver el contenido del archivo donde se almacenan los grupos en gnu/linux
 
 ```bash
 cat /etc/group
@@ -44,7 +43,12 @@ Vemos el archivo donde se almacenan los grupos despúes de la creación
 cat /etc/group
 ```
 
-Vemos el archivo donde se almacenan los usuarios antes de la creación
+## Creación de Usuarios
+
+Ahora creamos los usuarios correspondientes definiendo la ruta del directorio home de la siguiente manera:  
+`/datos/alumnos/nombre`
+
+Antes de ello, Vemos el contenido del archivo donde se almacenan los usuarios
 
 ```bash
 cat /etc/passwd
@@ -64,7 +68,11 @@ Vemos el archivo donde se almacenan los usuarios despúes de la creación
 cat /etc/passwd
 ```
 
-Vemos el archivo donde se almacenan las contraseñas antes de la creación
+## Creación de Contraseñas
+
+Ahora definimos las contraseñas para los usuarios previamente creados.
+
+Antes de ello, Vemos el contenido archivo donde se almacenan las contraseñas antes de la creación
 
 ```bash
 cat /etc/shadow
@@ -89,6 +97,8 @@ Asignamos los permisos y dueños a cada carpeta, previo a ello nos cambiamos de 
 ```bash
 cd /datos/alumnos
 ```
+
+## Asignación de Permisos
 
 Vemos los permisos asignados antes
 
@@ -126,11 +136,11 @@ directory mode = 700
 path = /datos/alumnos/andres
 write list = andres
 
-[Departamento_TI]
+[departamento_tic]
 browseable = no
 comment = Departamento_TI
-create mode = 777
-directory mode = 777
+create mode = 770
+directory mode = 770
 path = /datos/departamentos/dpto_ti
 write list = @curso_linux
 ```
