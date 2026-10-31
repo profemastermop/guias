@@ -19,6 +19,12 @@ Este instructivo describe el proceso de instalación y configuración del servic
 apt install nfs-kernel-server
 ```
 
+### Asignación de Permisos
+
+```bash
+chmod 777 /datos -R
+```
+
 ### Configuración del Archivo `/etc/exports`
 
 Editar el archivo `vim /etc/exports` y agregar la siguiente línea:
