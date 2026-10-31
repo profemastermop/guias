@@ -172,8 +172,9 @@ Repetir el comando anterior para cada usuario creado.
 ---
 
 ## Conexión desde Windows
+### Es factible realizarlo tanto desde una máquina virtual o bien desde la máquina física estableciendo la conexión por medio de la ip que nos proporciona la interface Solo Anfitrión
 
-En el cliente Windows se deben crear las unidades de red utilizando alguna de las siguientes rutas:
+Lo que debemos hacer es crear las unidades de red utilizando alguna de las siguientes rutas:
 
 ```
 \\nombre_del_equipo_+_dominio\nombre_recurso_compartido
@@ -190,13 +191,13 @@ o bien:
 En el cliente gnu/linux se deben crear los accesos a la red utilizando alguna de las siguientes rutas:
 
 ```
-smb://nombre_del_equipo_+_dominio\nombre_recurso_compartido
+smb://nombre_del_equipo_+_dominio/nombre_recurso_compartido
 ```
 
 o bien:
 
 ```
-smb://ip_servidor\nombre_recurso_compartido
+smb://ip_servidor/nombre_recurso_compartido
 ```
 
 ---
