@@ -258,7 +258,17 @@ HTTP(ACCEPT)     loc             $FW
 DHCPfwd(ACCEPT)     loc             $FW
 DHCPfwd(ACCEPT)     $FW             loc
 ```
+### e. SAMBA para Red Interna y Solo Anfitrión
+```bash
+SMB(ACCEPT)     loc             $FW
+SMB(ACCEPT)     dmz             $FW
+```
 
+### f. NFS para Red Interna y Solo Anfitrión
+```bash
+NFS(ACCEPT)     loc             $FW
+NFS(ACCEPT)     dmz             $FW
+```
 ---
 
 Con esto se permite acceso a **Apache2**, entrega de direccionamiento dinámico y salida a Internet desde la zona **loc**.
